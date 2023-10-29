@@ -23,9 +23,11 @@ void setup()
   kasia.bindData("TemperatureB", &temperatureB);
 
   // Once you have connected once. can use this line to start your connection
-  kasia.start("Temperature Sensors", 9600, "<WiFi-SSID>", "<WiFi-password>");
+  // Your WiFi credentials will be stored on the device
+  // kasia.start("Temperature Sensors", 9600, "<WiFi-SSID>", "<WiFi-password>");
 
-  // kasia.start("Temperature Sensors"
+  // Once you know your IP you can remove the code above and uncomment the line below
+  kasia.start("Temperature Sensors");
 
   // Once it has successfully connected. It will print something like this:
   // Temperature Sensors server started!
@@ -43,7 +45,7 @@ void loop()
   temperatureA = random(-248, 248);
   temperatureB = random(-248, 248);
 
-  // pereo
+  // periodically log a random number
   if (count++ >= 2480000)
   {
     count = 0;
